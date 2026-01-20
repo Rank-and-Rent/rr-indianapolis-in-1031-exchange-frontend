@@ -94,36 +94,22 @@ export default function ServicesShowcase() {
     setCurrentIndex((prev) => (prev + 1) % services.length);
   };
 
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + services.length) % services.length);
-  };
-
   return (
     <section id="services" className="grid grid-cols-1 lg:grid-cols-2 min-h-[700px]">
-      {/* Left - Image with Arch */}
+      {/* Left - Clean Arch Image */}
       <div className="relative bg-paper-alt flex items-center justify-center p-8 lg:p-16">
-        <div className="relative w-full max-w-md aspect-[3/4]">
-          {/* Top gradient fade */}
-          <div
-            className="absolute top-0 left-0 right-0 h-24 z-10 rounded-t-full"
-            style={{
-              background:
-                "linear-gradient(to bottom, rgba(176, 196, 222, 0.3) 0%, transparent 100%)",
-            }}
+        <div className="relative w-full max-w-md aspect-[3/4] arch-image">
+          <img
+            src={current.image}
+            alt={current.name}
+            className="w-full h-full object-cover transition-all duration-500"
           />
-          <div className="relative w-full h-full overflow-hidden rounded-t-full">
-            <img
-              src={current.image}
-              alt={current.name}
-              className="w-full h-full object-cover transition-all duration-500"
-            />
-          </div>
         </div>
       </div>
 
       {/* Right - Content with Teal Background */}
       <div className="relative bg-teal flex items-center">
-        {/* Navigation Arrow - positioned at the boundary */}
+        {/* Navigation Arrow */}
         <button
           onClick={nextSlide}
           className="absolute left-0 lg:-left-8 top-1/2 -translate-y-1/2 z-20"

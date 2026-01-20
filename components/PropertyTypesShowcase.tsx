@@ -122,7 +122,7 @@ export default function PropertyTypesShowcase() {
           </p>
         </div>
 
-        {/* Property Grid - 3 rectangular images */}
+        {/* Property Grid - Rectangular images */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {currentItems.map((property) => (
             <Link
@@ -182,21 +182,6 @@ export default function PropertyTypesShowcase() {
                 {i + 1}
               </button>
             ))}
-            {totalPages > 5 && (
-              <>
-                <span className="text-ink">...</span>
-                <button
-                  onClick={() => setCurrentPage(totalPages - 1)}
-                  className={`w-10 h-10 flex items-center justify-center text-sm transition-colors ${
-                    currentPage === totalPages - 1
-                      ? "bg-teal text-white"
-                      : "text-heading hover:bg-paper-alt"
-                  }`}
-                >
-                  {totalPages}
-                </button>
-              </>
-            )}
           </div>
 
           <button

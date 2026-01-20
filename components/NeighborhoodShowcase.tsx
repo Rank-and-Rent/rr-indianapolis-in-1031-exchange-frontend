@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-// Top 3 most expensive neighborhoods
 const topNeighborhoods = [
   {
     id: "meridian-hills",
@@ -34,14 +33,14 @@ export default function NeighborhoodShowcase() {
           <h2 className="text-5xl md:text-6xl lg:text-7xl text-heading font-serif italic mb-6">
             Indianapolis Neighborhoods
           </h2>
-          <p className="text-ink max-w-2xl mx-auto leading-relaxed">
+          <p className="text-ink max-w-2xl mx-auto">
             We specialize in the most sought-after neighborhoods across
             Indianapolis, with deep expertise in properties ideal for 1031
             exchanges.
           </p>
         </div>
 
-        {/* Three Arch Images */}
+        {/* Three Arch Images - Clean arch shape like Village Properties */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {topNeighborhoods.map((neighborhood) => (
             <Link
@@ -49,22 +48,12 @@ export default function NeighborhoodShowcase() {
               href={`/neighborhoods/${neighborhood.id}`}
               className="group"
             >
-              <div className="relative aspect-[3/4] mb-6">
-                {/* Top gradient fade */}
-                <div
-                  className="absolute top-0 left-0 right-0 h-20 z-10 rounded-t-full"
-                  style={{
-                    background:
-                      "linear-gradient(to bottom, rgba(176, 196, 222, 0.3) 0%, transparent 100%)",
-                  }}
+              <div className="relative aspect-[3/4] mb-6 arch-image">
+                <img
+                  src={neighborhood.image}
+                  alt={neighborhood.name}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="relative w-full h-full overflow-hidden rounded-t-full">
-                  <img
-                    src={neighborhood.image}
-                    alt={neighborhood.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
               </div>
               <h3 className="text-2xl md:text-3xl text-heading font-serif italic mb-2">
                 {neighborhood.name}

@@ -3,24 +3,14 @@ import Link from "next/link";
 export default function About() {
   return (
     <section id="about" className="grid grid-cols-1 lg:grid-cols-2 min-h-[700px]">
-      {/* Left - Arch Image */}
+      {/* Left - Clean Arch Image */}
       <div className="relative bg-paper flex items-center justify-center p-8 lg:p-16">
-        <div className="relative w-full max-w-md aspect-[3/4]">
-          {/* Top gradient fade for seamless blend */}
-          <div
-            className="absolute top-0 left-0 right-0 h-24 z-10 rounded-t-full"
-            style={{
-              background:
-                "linear-gradient(to bottom, rgba(176, 196, 222, 0.4) 0%, transparent 100%)",
-            }}
+        <div className="relative w-full max-w-md aspect-[3/4] arch-image">
+          <img
+            src="https://images.unsplash.com/photo-1569336415962-a4bd9f69c07b?w=800&q=80"
+            alt="Indianapolis skyline at sunset"
+            className="w-full h-full object-cover"
           />
-          <div className="relative w-full h-full overflow-hidden rounded-t-full">
-            <img
-              src="https://images.unsplash.com/photo-1569336415962-a4bd9f69c07b?w=800&q=80"
-              alt="Indianapolis skyline at sunset"
-              className="w-full h-full object-cover"
-            />
-          </div>
         </div>
       </div>
 

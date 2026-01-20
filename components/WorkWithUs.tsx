@@ -31,7 +31,7 @@ export default function WorkWithUs() {
       {/* Right - Content */}
       <div className="bg-teal flex flex-col justify-center p-8 lg:p-16 text-center min-h-96">
         <SparkleIcon />
-        <h2 className="text-5xl lg:text-6xl text-white mb-6 font-serif">
+        <h2 className="text-5xl lg:text-6xl text-white mb-6 font-serif italic">
           Work With Us
         </h2>
         <p className="text-white/75 leading-relaxed max-w-md mx-auto mb-6">
@@ -40,7 +40,7 @@ export default function WorkWithUs() {
           individualized attention, personalized service, and expert guidance
           through every step of your exchange.
         </p>
-        <p className="text-gold mb-10">
+        <p className="text-gold text-xl mb-10 font-serif">
           <a
             href={`tel:${site.phoneDigits}`}
             className="hover:text-gold-light transition-colors"

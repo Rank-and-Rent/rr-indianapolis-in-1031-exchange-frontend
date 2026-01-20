@@ -67,8 +67,6 @@ function AnimatedCounter({
           const animate = () => {
             const elapsed = Date.now() - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            
-            // Easing function for smooth animation
             const easeOutQuart = 1 - Math.pow(1 - progress, 4);
             const currentValue = easeOutQuart * endValue;
 
@@ -92,7 +90,6 @@ function AnimatedCounter({
     return () => observer.disconnect();
   }, [value, duration, hasAnimated]);
 
-  // Format the number
   const formatValue = (num: number) => {
     if (value >= 1000) {
       return num.toLocaleString("en-US", { maximumFractionDigits: 0 });
@@ -104,7 +101,7 @@ function AnimatedCounter({
   };
 
   return (
-    <span ref={ref} className="text-6xl md:text-7xl italic font-light font-serif">
+    <span ref={ref} className="text-6xl md:text-7xl font-serif italic text-heading">
       {prefix}
       {formatValue(count)}
     </span>
@@ -119,13 +116,13 @@ export default function Stats() {
           {stats.map((stat, index) => (
             <div key={index} className="bg-paper-alt py-16 px-8 text-center">
               <SparkleIcon />
-              <p className="text-heading mb-4">
+              <p className="mb-4">
                 <AnimatedCounter
                   value={stat.value}
                   prefix={stat.prefix}
                   suffix=""
                 />
-                <span className="text-4xl md:text-5xl text-gold-light">
+                <span className="text-4xl md:text-5xl text-gold font-serif">
                   {stat.suffix}
                 </span>
               </p>

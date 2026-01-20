@@ -26,9 +26,9 @@ const stats = [
   },
 ];
 
-function SparkleIcon() {
+function SparkleIcon({ className = "w-8 h-8" }: { className?: string }) {
   return (
-    <svg className="w-10 h-10 mx-auto mb-8" viewBox="0 0 40 40" fill="none">
+    <svg className={className} viewBox="0 0 40 40" fill="none">
       <path
         d="M20 4L22 16L34 20L22 24L20 36L18 24L6 20L18 16L20 4Z"
         fill="#C9A065"
@@ -110,21 +110,21 @@ function AnimatedCounter({
 
 export default function Stats() {
   return (
-    <section id="stats" className="py-32 bg-paper">
+    <section id="stats" className="py-20 bg-paper">
       <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {stats.map((stat, index) => (
-            <div key={index} className="bg-paper-alt py-20 px-10 text-center">
-              <SparkleIcon />
-              <p className="mb-6">
-                <span className="text-6xl md:text-7xl font-serif italic text-heading">
+            <div key={index} className="bg-cream py-16 px-8 text-center">
+              <SparkleIcon className="w-8 h-8 mx-auto mb-6" />
+              <p className="mb-4">
+                <span className="text-5xl md:text-6xl font-serif italic text-heading">
                   <AnimatedCounter
                     value={stat.value}
                     prefix={stat.prefix}
                     suffix=""
                   />
                 </span>
-                <span className="text-4xl md:text-5xl text-gold font-serif italic">
+                <span className="text-3xl md:text-4xl text-gold font-serif italic">
                   {stat.suffix}
                 </span>
               </p>

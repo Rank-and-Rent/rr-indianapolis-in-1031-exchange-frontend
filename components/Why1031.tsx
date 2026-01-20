@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const benefits = [
@@ -35,6 +35,13 @@ export default function Why1031() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const current = benefits[currentIndex];
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % benefits.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % benefits.length);
   };
@@ -46,7 +53,7 @@ export default function Why1031() {
   return (
     <section
       id="why-1031"
-      className="relative min-h-[600px] flex items-center"
+      className="relative min-h-[550px] flex items-center"
       style={{
         backgroundImage:
           "url('https://images.unsplash.com/photo-1569336415962-a4bd9f69c07b?w=1600&q=80')",
@@ -59,10 +66,10 @@ export default function Why1031() {
 
       {/* Content */}
       <div className="container relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center py-24">
-          {/* Left - Title */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-20">
+          {/* Left - Static Title */}
           <div>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl text-white font-serif leading-tight mb-8">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl text-white font-serif leading-tight mb-8">
               See Why 1031<br />
               Exchanges Work
             </h2>
@@ -71,14 +78,28 @@ export default function Why1031() {
             </Link>
           </div>
 
-          {/* Right - Benefit */}
-          <div>
-            <p className="text-2xl md:text-3xl text-white font-serif italic leading-relaxed mb-6">
+          {/* Right - Rotating Benefit */}
+          <div className="text-right">
+            <p className="text-xl md:text-2xl text-white font-serif italic leading-relaxed mb-4 transition-all duration-500">
               {current.description}
             </p>
-            <p className="text-gold text-sm tracking-widest uppercase">
+            <p className="text-gold text-sm tracking-widest uppercase mb-8">
               {current.title}
             </p>
+
+            {/* Dots */}
+            <div className="flex justify-end gap-2">
+              {benefits.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentIndex(idx)}
+                  className={`w-2 h-2 rounded-full transition-colors ${
+                    idx === currentIndex ? "bg-gold" : "bg-white/40"
+                  }`}
+                  aria-label={`Go to benefit ${idx + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
 
@@ -86,11 +107,11 @@ export default function Why1031() {
         <div className="absolute bottom-8 right-8 flex">
           <button
             onClick={prevSlide}
-            className="w-14 h-14 bg-white flex items-center justify-center hover:bg-paper transition-colors"
+            className="w-12 h-12 bg-white flex items-center justify-center hover:bg-paper transition-colors"
             aria-label="Previous benefit"
           >
             <svg
-              className="w-5 h-5 text-heading"
+              className="w-4 h-4 text-heading"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -105,11 +126,11 @@ export default function Why1031() {
           </button>
           <button
             onClick={nextSlide}
-            className="w-14 h-14 bg-white flex items-center justify-center hover:bg-paper transition-colors"
+            className="w-12 h-12 bg-white flex items-center justify-center hover:bg-paper transition-colors"
             aria-label="Next benefit"
           >
             <svg
-              className="w-5 h-5 text-heading"
+              className="w-4 h-4 text-heading"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

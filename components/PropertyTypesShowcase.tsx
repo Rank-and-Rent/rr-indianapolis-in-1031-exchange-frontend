@@ -3,78 +3,93 @@
 import { useState } from "react";
 import Link from "next/link";
 
+function SparkleIcon({ className = "w-8 h-8" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 40 40" fill="none">
+      <path
+        d="M20 4L22 16L34 20L22 24L20 36L18 24L6 20L18 16L20 4Z"
+        fill="#C9A065"
+      />
+      <circle cx="10" cy="10" r="2" fill="#C9A065" />
+      <circle cx="30" cy="10" r="2" fill="#C9A065" />
+      <circle cx="10" cy="30" r="2" fill="#C9A065" />
+      <circle cx="30" cy="30" r="2" fill="#C9A065" />
+    </svg>
+  );
+}
+
 const propertyTypes = [
   {
     id: "nnn",
     name: "NNN Properties",
-    location: "Indianapolis, IN",
-    description: "Triple net lease investments",
     image:
       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
   },
   {
     id: "retail",
-    name: "Retail Properties",
-    location: "Central Indiana",
-    description: "Shopping centers & storefronts",
+    name: "Retail",
     image:
       "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80",
   },
   {
     id: "office",
     name: "Office Buildings",
-    location: "Downtown Indianapolis",
-    description: "Class A & B office spaces",
     image:
       "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
   },
   {
     id: "industrial",
     name: "Industrial",
-    location: "Indianapolis Metro",
-    description: "Distribution & logistics",
     image:
       "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80",
   },
   {
     id: "multifamily",
     name: "Multifamily",
-    location: "Greater Indianapolis",
-    description: "Apartment complexes",
     image:
       "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
   },
   {
     id: "medical",
     name: "Medical Office",
-    location: "Indianapolis, IN",
-    description: "Healthcare facilities",
     image:
       "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80",
   },
   {
     id: "hospitality",
     name: "Hospitality",
-    location: "Central Indiana",
-    description: "Hotels & lodging",
     image:
       "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80",
   },
   {
-    id: "mixed-use",
-    name: "Mixed-Use",
-    location: "Urban Indianapolis",
-    description: "Multi-purpose developments",
+    id: "student-housing",
+    name: "Student Housing",
     image:
-      "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800&q=80",
+      "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=800&q=80",
   },
   {
     id: "self-storage",
     name: "Self-Storage",
-    location: "Indianapolis Metro",
-    description: "Storage facilities",
     image:
       "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80",
+  },
+  {
+    id: "senior-living",
+    name: "Senior Living",
+    image:
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80",
+  },
+  {
+    id: "mixed-use",
+    name: "Mixed-Use",
+    image:
+      "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800&q=80",
+  },
+  {
+    id: "land",
+    name: "Land",
+    image:
+      "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80",
   },
 ];
 
@@ -94,25 +109,31 @@ export default function PropertyTypesShowcase() {
   };
 
   return (
-    <section id="property-types" className="py-32 bg-paper">
+    <section id="property-types" className="py-24 bg-paper">
       <div className="container">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl text-heading font-serif italic">
+        <div className="text-center mb-14">
+          <SparkleIcon className="w-8 h-8 mx-auto mb-6" />
+          <h2 className="text-5xl md:text-6xl text-heading font-serif italic mb-4">
             Property Types
           </h2>
+          <p className="text-ink max-w-2xl mx-auto">
+            We facilitate 1031 exchanges across all property types. Don&apos;t
+            see yours listed? <Link href="/contact" className="text-teal underline">Contact us</Link> and
+            we&apos;ll help you find the right solution.
+          </p>
         </div>
 
-        {/* Property Grid - Rectangular images like Featured Properties */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        {/* Property Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14">
           {currentItems.map((property) => (
             <Link
               key={property.id}
               href={`/property-types/${property.id}`}
               className="group"
             >
-              {/* Rectangular Image */}
-              <div className="relative aspect-[4/3] mb-6 overflow-hidden">
+              {/* Image */}
+              <div className="relative aspect-[4/3] mb-4 overflow-hidden">
                 <img
                   src={property.image}
                   alt={property.name}
@@ -121,10 +142,9 @@ export default function PropertyTypesShowcase() {
               </div>
 
               {/* Text */}
-              <h3 className="text-2xl md:text-3xl text-heading font-serif italic mb-1">
+              <h3 className="text-2xl text-heading font-serif italic">
                 {property.name}
               </h3>
-              <p className="text-ink text-sm mb-2">{property.location}</p>
             </Link>
           ))}
         </div>

@@ -2,55 +2,62 @@ import Link from "next/link";
 
 const neighborhoods = [
   {
-    name: "Downtown Indianapolis",
-    address: "Monument Circle & Market District",
+    name: "Downtown",
+    address: "Monument Circle, Indianapolis, IN 46204",
     image:
-      "https://images.unsplash.com/photo-1569974498991-d3c12a140d0e?w=600&q=80",
+      "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=600&q=80",
     slug: "downtown",
   },
   {
     name: "Carmel",
     address: "Arts & Design District, IN 46032",
     image:
-      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80",
     slug: "carmel",
   },
   {
     name: "Fishers",
     address: "Nickel Plate District, IN 46038",
     image:
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80",
     slug: "fishers",
   },
 ];
 
 export default function Neighborhoods() {
   return (
-    <section id="neighborhoods" className="py-20 md:py-28 bg-paper">
+    <section id="neighborhoods" className="py-24 bg-paper">
       <div className="container">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-serif text-heading mb-6">
-            Investment Areas
+          <h2 className="text-5xl md:text-6xl text-heading mb-6 font-serif">
+            Offices & Staff
           </h2>
-          <p className="text-lg text-ink max-w-2xl mx-auto">
-            We specialize in 1031 exchanges across Indianapolis and surrounding
-            areas, with deep expertise in the region&apos;s most dynamic
-            investment markets.
+          <p className="text-ink max-w-2xl mx-auto leading-relaxed">
+            We support our clients from three primary locations, with an
+            experienced, multi-disciplinary team covering Property Analysis,
+            Exchange Coordination, Tax Strategy, and Administration.
           </p>
         </div>
 
         {/* Neighborhood Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {neighborhoods.map((neighborhood, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+          {neighborhoods.map((neighborhood) => (
             <Link
               key={neighborhood.slug}
               href={`/neighborhoods/${neighborhood.slug}`}
-              className="group block animate-slide-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="group block"
             >
               {/* Arch Image */}
-              <div className="aspect-[3/4] mb-6 overflow-hidden arch-mask bg-gradient-to-b from-sky-100 to-transparent">
+              <div className="relative overflow-hidden aspect-[3/4] mb-6 rounded-t-full">
+                {/* Top gradient fade */}
+                <div
+                  className="absolute top-0 left-0 right-0 h-24 z-10"
+                  style={{
+                    background:
+                      "linear-gradient(to bottom, #b8d4db 0%, transparent 100%)",
+                  }}
+                />
                 <img
                   src={neighborhood.image}
                   alt={neighborhood.name}
@@ -59,7 +66,7 @@ export default function Neighborhoods() {
               </div>
 
               {/* Text */}
-              <h3 className="text-3xl font-serif text-heading mb-2 group-hover:text-teal transition-colors">
+              <h3 className="text-3xl text-heading mb-2 group-hover:text-teal transition-colors font-serif">
                 {neighborhood.name}
               </h3>
               <p className="text-sm text-ink">{neighborhood.address}</p>

@@ -1,58 +1,59 @@
 const stats = [
   {
-    value: "$2.1B+",
-    label: "Exchange Volume Facilitated",
+    value: "$2.1B",
+    suffix: "+",
+    label: "Worth Of Real Estate Exchanged",
     sublabel: "(Lifetime)",
   },
   {
-    value: "500+",
-    label: "Successful Exchanges",
+    value: "150",
+    suffix: "+",
+    label: "Qualified Intermediaries",
     sublabel: "",
   },
   {
-    value: "25+",
-    label: "Years of Experience",
+    value: "8,500",
+    suffix: "+",
+    label: "Transactions (Lifetime)",
     sublabel: "",
   },
 ];
 
-function Sparkle() {
+function SparkleIcon() {
   return (
-    <svg
-      className="w-8 h-8 text-gold mx-auto mb-4"
-      viewBox="0 0 32 32"
-      fill="currentColor"
-    >
-      <path d="M16 0L18 12L30 16L18 20L16 32L14 20L2 16L14 12L16 0Z" />
-      <circle cx="8" cy="8" r="1.5" />
-      <circle cx="24" cy="8" r="1.5" />
-      <circle cx="8" cy="24" r="1.5" />
-      <circle cx="24" cy="24" r="1.5" />
+    <svg className="w-7 h-7 mx-auto mb-5" viewBox="0 0 28 28" fill="none">
+      <path
+        d="M14 0L15.5 10.5L26 14L15.5 17.5L14 28L12.5 17.5L2 14L12.5 10.5L14 0Z"
+        fill="#C9A065"
+      />
+      <circle cx="6" cy="6" r="1.5" fill="#C9A065" />
+      <circle cx="22" cy="6" r="1.5" fill="#C9A065" />
+      <circle cx="6" cy="22" r="1.5" fill="#C9A065" />
+      <circle cx="22" cy="22" r="1.5" fill="#C9A065" />
     </svg>
   );
 }
 
 export default function Stats() {
   return (
-    <section id="stats" className="py-20 md:py-28 bg-paper">
+    <section id="stats" className="py-24 bg-paper">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {stats.map((stat, index) => (
-            <div
-              key={index}
-              className="bg-paper-alt p-10 md:p-12 text-center animate-scale-in"
-              style={{ animationDelay: `${index * 0.15}s` }}
-            >
-              <Sparkle />
-              <p className="text-5xl md:text-6xl font-serif italic text-heading mb-3">
-                {stat.value}
+            <div key={index} className="bg-paper-alt py-16 px-8 text-center">
+              <SparkleIcon />
+              <p className="text-heading mb-4">
+                <span className="text-6xl md:text-7xl italic font-light font-serif">
+                  {stat.value}
+                </span>
+                <span className="text-4xl md:text-5xl text-gold-light">
+                  {stat.suffix}
+                </span>
               </p>
-              <p className="text-sm tracking-wide text-ink">
-                {stat.label}
-                {stat.sublabel && (
-                  <span className="block text-ink/70">{stat.sublabel}</span>
-                )}
-              </p>
+              <p className="text-sm text-ink tracking-wide">{stat.label}</p>
+              {stat.sublabel && (
+                <p className="text-sm text-ink/60">{stat.sublabel}</p>
+              )}
             </div>
           ))}
         </div>

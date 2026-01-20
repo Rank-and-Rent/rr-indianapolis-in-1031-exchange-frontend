@@ -31,17 +31,17 @@ export default function Footer() {
   return (
     <footer className="bg-heading text-white">
       {/* Main Footer */}
-      <div className="container py-16 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+      <div className="container py-16 lg:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block mb-6">
-              <h3 className="text-xl font-serif tracking-[0.15em]">
+              <span className="block text-xl tracking-wider font-serif">
                 INDIANAPOLIS
-              </h3>
-              <p className="text-xs tracking-[0.3em] text-white/60 mt-1">
+              </span>
+              <span className="block text-xs tracking-widest text-white/60 mt-1">
                 1031 EXCHANGE
-              </p>
+              </span>
             </Link>
             <p className="text-sm text-white/60 leading-relaxed">
               Expert 1031 exchange services for investors seeking tax-advantaged

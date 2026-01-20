@@ -7,42 +7,41 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="relative h-screen w-full pt-20">
       {/* Video Background */}
-      <div className="absolute inset-0 video-container">
+      <div className="absolute inset-0 overflow-hidden">
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-          poster="/indianapolis-poster.jpg"
+          className="absolute min-w-full min-h-full object-cover"
+          style={{
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+          }}
         >
           <source src="/indianaaaaaaa.mp4" type="video/mp4" />
         </video>
-        {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-black/30" />
+        {/* Subtle overlay */}
+        <div className="absolute inset-0 bg-black/20" />
       </div>
 
-      {/* Hero Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
-        <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif font-light tracking-wide animate-fade-in mb-4">
-          Maximize Your Investment
-        </h2>
-        <p className="text-lg md:text-xl font-light tracking-wide max-w-2xl animate-slide-up opacity-90">
-          Expert 1031 Exchange Services in Indianapolis
-        </p>
-      </div>
-
-      {/* Scroll Down Button */}
+      {/* Scroll Down Button - Teal flower/badge shape */}
       <button
         onClick={scrollToContent}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 group"
         aria-label="Scroll to content"
       >
-        <div className="w-12 h-12 rounded-full bg-teal flex items-center justify-center transition-transform group-hover:scale-110 shadow-lg">
+        <div
+          className="relative w-14 h-14 flex items-center justify-center bg-teal"
+          style={{
+            borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%",
+          }}
+        >
           <svg
-            className="w-5 h-5 text-white animate-bounce"
+            className="w-5 h-5 text-white"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

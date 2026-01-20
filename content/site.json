@@ -1,16 +1,131 @@
 {
-  "company": "1031 Exchange Indianapolis",
-  "phone": "",
-  "phoneDigits": "",
+  "company": "Indianapolis 1031 Exchange",
+  "tagline": "Expert Tax-Deferred Real Estate Investment Services",
+  "phone": "(317) 555-1031",
+  "phoneDigits": "3175551031",
+  "email": "info@indy1031exchange.com",
   "mainCity": "Indianapolis",
   "state": "IN",
-  "services": [],
-  "servicesNav": [],
-  "locationsNav": [],
+  "address": {
+    "street": "100 Monument Circle",
+    "suite": "Suite 500",
+    "city": "Indianapolis",
+    "state": "IN",
+    "zip": "46204"
+  },
+  "propertyTypes": [
+    {
+      "id": "nnn",
+      "label": "NNN Properties",
+      "href": "/properties/nnn"
+    },
+    {
+      "id": "retail",
+      "label": "Retail Properties",
+      "href": "/properties/retail"
+    },
+    {
+      "id": "commercial",
+      "label": "Commercial Properties",
+      "href": "/properties/commercial"
+    }
+  ],
+  "services": [
+    {
+      "id": "delayed-exchange",
+      "label": "Delayed Exchange",
+      "href": "/services/delayed-exchange"
+    },
+    {
+      "id": "reverse-exchange",
+      "label": "Reverse Exchange",
+      "href": "/services/reverse-exchange"
+    },
+    {
+      "id": "improvement-exchange",
+      "label": "Improvement Exchange",
+      "href": "/services/improvement-exchange"
+    },
+    {
+      "id": "consultation",
+      "label": "Exchange Consultation",
+      "href": "/services/consultation"
+    }
+  ],
+  "neighborhoods": [
+    {
+      "id": "downtown",
+      "label": "Downtown Indianapolis",
+      "href": "/neighborhoods/downtown"
+    },
+    {
+      "id": "carmel",
+      "label": "Carmel",
+      "href": "/neighborhoods/carmel"
+    },
+    {
+      "id": "fishers",
+      "label": "Fishers",
+      "href": "/neighborhoods/fishers"
+    },
+    {
+      "id": "noblesville",
+      "label": "Noblesville",
+      "href": "/neighborhoods/noblesville"
+    },
+    {
+      "id": "zionsville",
+      "label": "Zionsville",
+      "href": "/neighborhoods/zionsville"
+    }
+  ],
+  "servicesNav": [
+    {
+      "label": "Delayed Exchange",
+      "href": "/services/delayed-exchange"
+    },
+    {
+      "label": "Reverse Exchange",
+      "href": "/services/reverse-exchange"
+    },
+    {
+      "label": "Improvement Exchange",
+      "href": "/services/improvement-exchange"
+    }
+  ],
+  "locationsNav": [
+    {
+      "label": "Downtown Indianapolis",
+      "href": "/neighborhoods/downtown"
+    },
+    {
+      "label": "Carmel",
+      "href": "/neighborhoods/carmel"
+    },
+    {
+      "label": "Fishers",
+      "href": "/neighborhoods/fishers"
+    }
+  ],
   "extraLinks": [
+    {
+      "label": "About",
+      "href": "/about"
+    },
     {
       "label": "Contact",
       "href": "/contact"
     }
-  ]
+  ],
+  "seo": {
+    "title": "Indianapolis 1031 Exchange | Tax-Deferred Real Estate Investment",
+    "description": "Expert 1031 exchange services in Indianapolis, Indiana. Defer capital gains taxes on NNN properties, retail, and commercial real estate investments.",
+    "keywords": [
+      "1031 exchange Indianapolis",
+      "tax deferred exchange Indiana",
+      "NNN properties Indianapolis",
+      "commercial real estate 1031",
+      "qualified intermediary Indiana"
+    ]
+  }
 }

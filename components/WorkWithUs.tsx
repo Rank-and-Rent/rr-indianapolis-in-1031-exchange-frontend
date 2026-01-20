@@ -1,4 +1,5 @@
 import Link from "next/link";
+import site from "@/content/site.json";
 
 function SparkleIcon() {
   return (
@@ -22,7 +23,7 @@ export default function WorkWithUs() {
       <div className="relative h-96 lg:h-auto min-h-[500px]">
         <img
           src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80"
-          alt="Modern Indianapolis property with pool"
+          alt="Modern Indianapolis property"
           className="absolute inset-0 w-full h-full object-cover"
         />
       </div>
@@ -33,11 +34,19 @@ export default function WorkWithUs() {
         <h2 className="text-5xl lg:text-6xl text-white mb-6 font-serif">
           Work With Us
         </h2>
-        <p className="text-white/75 leading-relaxed max-w-md mx-auto mb-10">
+        <p className="text-white/75 leading-relaxed max-w-md mx-auto mb-6">
           We&apos;ve been facilitating 1031 exchanges for investors throughout
-          Indiana for over two decades and we&apos;re the top-performing
-          exchange facilitator in the area. Our devoted team offers
-          individualized attention, personalized service, and expert guidance.
+          Central Indiana for over two decades. Our devoted team offers
+          individualized attention, personalized service, and expert guidance
+          through every step of your exchange.
+        </p>
+        <p className="text-gold mb-10">
+          <a
+            href={`tel:${site.phoneDigits}`}
+            className="hover:text-gold-light transition-colors"
+          >
+            {site.phone}
+          </a>
         </p>
         <Link href="/contact" className="btn btn-outline-white mx-auto">
           Contact Us

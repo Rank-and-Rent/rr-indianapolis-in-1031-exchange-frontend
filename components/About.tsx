@@ -18,7 +18,7 @@ export default function About() {
             <div className="relative overflow-hidden aspect-[3/4] rounded-t-full">
               <img
                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"
-                alt="Indianapolis sunset skyline"
+                alt="Indianapolis skyline at sunset"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -30,12 +30,17 @@ export default function About() {
               About Us
             </h2>
             <p className="text-ink leading-relaxed mb-6 max-w-lg mx-auto lg:mx-0">
-              Founded with decades of combined experience, Indianapolis 1031
-              Exchange represents a trusted connection between investors and
-              tax-advantaged opportunities within the Indianapolis region
-              through highly trained and cultivated advisors, and a focused
-              mission on serving the investment community now and into the
-              future.
+              Indianapolis 1031 Exchange represents a trusted connection between
+              investors and tax-advantaged opportunities. With decades of
+              combined experience in the Indianapolis real estate market, our
+              team of highly trained advisors specializes in helping property
+              owners defer capital gains through strategic like-kind exchanges.
+            </p>
+            <p className="text-ink leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
+              Our focused mission is on serving the Indianapolis investment
+              community with personalized service, expert guidance, and deep
+              local market knowledge that ensures every exchange is executed
+              with precision and care.
             </p>
             <Link href="/about" className="btn btn-outline">
               Read More

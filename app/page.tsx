@@ -2,11 +2,9 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Stats from "@/components/Stats";
 import About from "@/components/About";
-import PropertyCarousel from "@/components/PropertyCarousel";
-import Neighborhoods from "@/components/Neighborhoods";
-import NeighborhoodSpotlight from "@/components/NeighborhoodSpotlight";
-import Services from "@/components/Services";
-import FeaturedProperties from "@/components/FeaturedProperties";
+import PropertyTypesShowcase from "@/components/PropertyTypesShowcase";
+import ServicesShowcase from "@/components/ServicesShowcase";
+import NeighborhoodShowcase from "@/components/NeighborhoodShowcase";
 import WorkWithUs from "@/components/WorkWithUs";
 import Footer from "@/components/Footer";
 
@@ -15,29 +13,23 @@ export default function Home() {
     <>
       <Header />
       <main>
-        {/* Hero with video */}
+        {/* Hero with video background */}
         <Hero />
 
-        {/* Stats: $2.1B+, 150+, 8,500+ */}
+        {/* Stats: Exchange Volume, Intermediaries, Transactions */}
         <Stats />
 
         {/* About Us section with arch image */}
         <About />
 
-        {/* Dark teal property carousel */}
-        <PropertyCarousel />
+        {/* Property Types rotating showcase */}
+        <PropertyTypesShowcase />
 
-        {/* Offices/Neighborhoods with 3 arch cards */}
-        <Neighborhoods />
+        {/* Services rotating showcase */}
+        <ServicesShowcase />
 
-        {/* Property Types spotlight (NNN, Retail, Commercial) */}
-        <NeighborhoodSpotlight />
-
-        {/* Services spotlight (Delayed, Reverse, Improvement Exchange) */}
-        <Services />
-
-        {/* Featured Properties grid with pagination */}
-        <FeaturedProperties />
+        {/* Neighborhoods rotating showcase */}
+        <NeighborhoodShowcase />
 
         {/* Work With Us CTA */}
         <WorkWithUs />

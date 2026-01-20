@@ -36,15 +36,22 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.875rem 2rem;
+  padding: 1rem 2.5rem;
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.15em;
@@ -83,10 +90,4 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 
 .btn-solid:hover {
   background: var(--color-teal-light);
-}
-
-/* Clean arch shape - no gradients */
-.arch-image {
-  border-radius: 500px 500px 0 0;
-  overflow: hidden;
 }

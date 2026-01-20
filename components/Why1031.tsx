@@ -1,99 +1,127 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 
 const benefits = [
   {
-    title: "Defer Capital Gains",
+    title: "Defer Capital Gains Taxes",
     description:
-      "Section 1031 of the Internal Revenue Code allows investors to defer capital gains taxes when exchanging one investment property for another of like-kind, preserving your investment capital.",
+      "With a stepped-up basis at death, your heirs may never pay the deferred capital gains taxes, creating generational wealth.",
   },
   {
     title: "Accelerate Wealth Building",
     description:
-      "By deferring taxes, you can use 100% of your equity to acquire larger, more valuable properties. This compounding effect accelerates portfolio growth over time.",
+      "By deferring taxes, you can reinvest 100% of your equity into larger properties, accelerating portfolio growth exponentially.",
   },
   {
     title: "Portfolio Diversification",
     description:
-      "1031 exchanges provide flexibility to diversify across different property types, geographic locations, and risk profiles without triggering immediate tax consequences.",
-  },
-  {
-    title: "Generational Wealth",
-    description:
-      "Properties can be exchanged indefinitely, deferring taxes until you choose to cash out. When passed to heirs, they receive a stepped-up basis, potentially eliminating deferred gains.",
+      "Exchange into different property types or geographic locations without triggering immediate tax consequences.",
   },
   {
     title: "Improved Cash Flow",
     description:
-      "Strategic exchanges allow you to trade into properties with higher cap rates, better tenant quality, or lower management burden, improving your overall investment returns.",
+      "Trade into properties with better cap rates, stronger tenants, or lower management burden to optimize returns.",
+  },
+  {
+    title: "Estate Planning Benefits",
+    description:
+      "Properties can be exchanged indefinitely, with heirs receiving stepped-up basis that may eliminate all deferred gains.",
   },
 ];
 
 export default function Why1031() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const current = benefits[currentIndex];
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % benefits.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % benefits.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + benefits.length) % benefits.length);
+  };
 
   return (
-    <section id="why-1031" className="py-24 bg-teal">
-      <div className="container">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Title */}
-          <h2 className="text-5xl md:text-6xl lg:text-7xl text-white mb-16 font-serif italic">
-            Why 1031 Exchange?
-          </h2>
+    <section
+      id="why-1031"
+      className="relative min-h-[600px] flex items-center"
+      style={{
+        backgroundImage:
+          "url('https://images.unsplash.com/photo-1569336415962-a4bd9f69c07b?w=1600&q=80')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/50" />
 
-          {/* Benefits Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {benefits.slice(0, 3).map((benefit, idx) => (
-              <div
-                key={idx}
-                className="text-left p-8 bg-white/5 border border-white/10"
-              >
-                <div className="w-12 h-12 flex items-center justify-center border border-gold text-gold mb-6 font-serif text-xl">
-                  {idx + 1}
-                </div>
-                <h3 className="text-xl text-white font-serif italic mb-4">
-                  {benefit.title}
-                </h3>
-                <p className="text-white/70 text-sm leading-relaxed">
-                  {benefit.description}
-                </p>
-              </div>
-            ))}
+      {/* Content */}
+      <div className="container relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center py-24">
+          {/* Left - Title */}
+          <div>
+            <h2 className="text-5xl md:text-6xl lg:text-7xl text-white font-serif leading-tight mb-8">
+              See Why 1031<br />
+              Exchanges Work
+            </h2>
+            <Link href="/why-1031" className="btn btn-outline-white">
+              View All
+            </Link>
           </div>
 
-          {/* Additional Benefits Row */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto mb-16">
-            {benefits.slice(3, 5).map((benefit, idx) => (
-              <div
-                key={idx + 3}
-                className="text-left p-8 bg-white/5 border border-white/10"
-              >
-                <div className="w-12 h-12 flex items-center justify-center border border-gold text-gold mb-6 font-serif text-xl">
-                  {idx + 4}
-                </div>
-                <h3 className="text-xl text-white font-serif italic mb-4">
-                  {benefit.title}
-                </h3>
-                <p className="text-white/70 text-sm leading-relaxed">
-                  {benefit.description}
-                </p>
-              </div>
-            ))}
+          {/* Right - Benefit */}
+          <div>
+            <p className="text-2xl md:text-3xl text-white font-serif italic leading-relaxed mb-6">
+              {current.description}
+            </p>
+            <p className="text-gold text-sm tracking-widest uppercase">
+              {current.title}
+            </p>
           </div>
+        </div>
 
-          {/* CTA */}
-          <Link href="/why-1031" className="btn btn-outline-white">
-            Learn More About 1031 Exchanges
-          </Link>
+        {/* Navigation */}
+        <div className="absolute bottom-8 right-8 flex">
+          <button
+            onClick={prevSlide}
+            className="w-14 h-14 bg-white flex items-center justify-center hover:bg-paper transition-colors"
+            aria-label="Previous benefit"
+          >
+            <svg
+              className="w-5 h-5 text-heading"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.5}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+          <button
+            onClick={nextSlide}
+            className="w-14 h-14 bg-white flex items-center justify-center hover:bg-paper transition-colors"
+            aria-label="Next benefit"
+          >
+            <svg
+              className="w-5 h-5 text-heading"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.5}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </section>

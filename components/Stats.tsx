@@ -14,7 +14,7 @@ const stats = [
     value: 150,
     prefix: "",
     suffix: "+",
-    label: "Qualified Intermediaries",
+    label: "Top Exchange Advisors",
     sublabel: "",
   },
   {
@@ -28,15 +28,15 @@ const stats = [
 
 function SparkleIcon() {
   return (
-    <svg className="w-7 h-7 mx-auto mb-5" viewBox="0 0 28 28" fill="none">
+    <svg className="w-10 h-10 mx-auto mb-8" viewBox="0 0 40 40" fill="none">
       <path
-        d="M14 0L15.5 10.5L26 14L15.5 17.5L14 28L12.5 17.5L2 14L12.5 10.5L14 0Z"
+        d="M20 4L22 16L34 20L22 24L20 36L18 24L6 20L18 16L20 4Z"
         fill="#C9A065"
       />
-      <circle cx="6" cy="6" r="1.5" fill="#C9A065" />
-      <circle cx="22" cy="6" r="1.5" fill="#C9A065" />
-      <circle cx="6" cy="22" r="1.5" fill="#C9A065" />
-      <circle cx="22" cy="22" r="1.5" fill="#C9A065" />
+      <circle cx="10" cy="10" r="2" fill="#C9A065" />
+      <circle cx="30" cy="10" r="2" fill="#C9A065" />
+      <circle cx="10" cy="30" r="2" fill="#C9A065" />
+      <circle cx="30" cy="30" r="2" fill="#C9A065" />
     </svg>
   );
 }
@@ -101,7 +101,7 @@ function AnimatedCounter({
   };
 
   return (
-    <span ref={ref} className="text-6xl md:text-7xl font-serif italic text-heading">
+    <span ref={ref}>
       {prefix}
       {formatValue(count)}
     </span>
@@ -110,25 +110,27 @@ function AnimatedCounter({
 
 export default function Stats() {
   return (
-    <section id="stats" className="py-24 bg-paper">
+    <section id="stats" className="py-32 bg-paper">
       <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {stats.map((stat, index) => (
-            <div key={index} className="bg-paper-alt py-16 px-8 text-center">
+            <div key={index} className="bg-paper-alt py-20 px-10 text-center">
               <SparkleIcon />
-              <p className="mb-4">
-                <AnimatedCounter
-                  value={stat.value}
-                  prefix={stat.prefix}
-                  suffix=""
-                />
-                <span className="text-4xl md:text-5xl text-gold font-serif">
+              <p className="mb-6">
+                <span className="text-6xl md:text-7xl font-serif italic text-heading">
+                  <AnimatedCounter
+                    value={stat.value}
+                    prefix={stat.prefix}
+                    suffix=""
+                  />
+                </span>
+                <span className="text-4xl md:text-5xl text-gold font-serif italic">
                   {stat.suffix}
                 </span>
               </p>
-              <p className="text-sm text-ink tracking-wide">{stat.label}</p>
+              <p className="text-ink text-sm tracking-wide">{stat.label}</p>
               {stat.sublabel && (
-                <p className="text-sm text-ink/60">{stat.sublabel}</p>
+                <p className="text-ink/60 text-sm">{stat.sublabel}</p>
               )}
             </div>
           ))}

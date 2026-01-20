@@ -1,18 +1,25 @@
+"use client";
+
+import { useEffect, useState, useRef } from "react";
+
 const stats = [
   {
-    value: "$2.1B",
-    suffix: "+",
+    value: 2.1,
+    prefix: "$",
+    suffix: "B+",
     label: "Worth Of Real Estate Exchanged",
     sublabel: "(Lifetime)",
   },
   {
-    value: "150",
+    value: 150,
+    prefix: "",
     suffix: "+",
     label: "Qualified Intermediaries",
     sublabel: "",
   },
   {
-    value: "8,500",
+    value: 8500,
+    prefix: "",
     suffix: "+",
     label: "Transactions (Lifetime)",
     sublabel: "",
@@ -34,6 +41,76 @@ function SparkleIcon() {
   );
 }
 
+function AnimatedCounter({
+  value,
+  prefix,
+  suffix,
+  duration = 2000,
+}: {
+  value: number;
+  prefix: string;
+  suffix: string;
+  duration?: number;
+}) {
+  const [count, setCount] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const ref = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          const startTime = Date.now();
+          const endValue = value;
+
+          const animate = () => {
+            const elapsed = Date.now() - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Easing function for smooth animation
+            const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+            const currentValue = easeOutQuart * endValue;
+
+            setCount(currentValue);
+
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            }
+          };
+
+          requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, [value, duration, hasAnimated]);
+
+  // Format the number
+  const formatValue = (num: number) => {
+    if (value >= 1000) {
+      return num.toLocaleString("en-US", { maximumFractionDigits: 0 });
+    }
+    if (value < 10) {
+      return num.toFixed(1);
+    }
+    return Math.round(num).toString();
+  };
+
+  return (
+    <span ref={ref} className="text-6xl md:text-7xl italic font-light font-serif">
+      {prefix}
+      {formatValue(count)}
+    </span>
+  );
+}
+
 export default function Stats() {
   return (
     <section id="stats" className="py-24 bg-paper">
@@ -43,9 +120,11 @@ export default function Stats() {
             <div key={index} className="bg-paper-alt py-16 px-8 text-center">
               <SparkleIcon />
               <p className="text-heading mb-4">
-                <span className="text-6xl md:text-7xl italic font-light font-serif">
-                  {stat.value}
-                </span>
+                <AnimatedCounter
+                  value={stat.value}
+                  prefix={stat.prefix}
+                  suffix=""
+                />
                 <span className="text-4xl md:text-5xl text-gold-light">
                   {stat.suffix}
                 </span>

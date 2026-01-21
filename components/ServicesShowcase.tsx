@@ -91,18 +91,18 @@ export default function ServicesShowcase() {
 
       {/* Service Content */}
       <div className="grid grid-cols-1 lg:grid-cols-2">
-        {/* Left - Arch Image with Cream Background */}
-        <div className="relative bg-cream py-16 px-8 lg:px-16 flex items-center justify-center min-h-[500px]">
+        {/* Left - Arch Image with Light Gray Background */}
+        <div className="relative bg-gray-light py-16 px-8 lg:px-16 flex items-center justify-center min-h-[500px]">
           {/* Arch Image */}
           <div className="relative w-full max-w-sm">
             {/* Soft gradient fade at top */}
             <div
               className="absolute top-0 left-0 right-0 h-16 z-10 pointer-events-none"
-              style={{
-                background:
-                  "linear-gradient(to bottom, rgba(253,248,243,0.9) 0%, rgba(253,248,243,0.3) 50%, transparent 100%)",
-                borderRadius: "220px 220px 0 0",
-              }}
+            style={{
+              background:
+                "linear-gradient(to bottom, rgba(229,226,219,0.9) 0%, rgba(229,226,219,0.3) 50%, transparent 100%)",
+              borderRadius: "220px 220px 0 0",
+            }}
             />
             <div
               className="relative overflow-hidden transition-all duration-500"

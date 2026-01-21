@@ -18,8 +18,8 @@ function SparkleIcon({ className = "w-8 h-8" }: { className?: string }) {
 export default function About() {
   return (
     <section id="about" className="grid grid-cols-1 lg:grid-cols-2">
-      {/* Left - Arch Image with Cream Background */}
-      <div className="relative bg-cream py-16 px-8 lg:px-16 flex items-center justify-center min-h-[550px]">
+      {/* Left - Arch Image with Light Gray Background */}
+      <div className="relative bg-gray-light py-16 px-8 lg:px-16 flex items-center justify-center min-h-[550px]">
         {/* Arch Image */}
         <div className="relative w-full max-w-sm">
           {/* Soft gradient fade at top */}
@@ -27,7 +27,7 @@ export default function About() {
             className="absolute top-0 left-0 right-0 h-16 z-10 pointer-events-none"
             style={{
               background:
-                "linear-gradient(to bottom, rgba(253,248,243,0.9) 0%, rgba(253,248,243,0.3) 50%, transparent 100%)",
+                "linear-gradient(to bottom, rgba(229,226,219,0.9) 0%, rgba(229,226,219,0.3) 50%, transparent 100%)",
               borderRadius: "250px 250px 0 0",
             }}
           />

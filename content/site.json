@@ -284,7 +284,37 @@
       "like-kind exchange",
       "Carmel real estate investment",
       "Fishers 1031 exchange",
-      "Indianapolis investment property"
+      "Indianapolis investment property",
+      "delayed exchange Indianapolis",
+      "reverse exchange Indiana",
+      "DST investments Indianapolis",
+      "Indianapolis commercial property",
+      "retail property 1031 exchange",
+      "multifamily 1031 exchange Indianapolis",
+      "industrial property tax deferral",
+      "Indianapolis real estate investment"
     ]
-  }
+  },
+  "faq": [
+    {
+      "question": "What is a 1031 exchange?",
+      "answer": "A 1031 exchange, named after Section 1031 of the Internal Revenue Code, allows real estate investors to defer capital gains taxes when selling investment property by reinvesting proceeds into like-kind replacement property. This powerful tax strategy helps Indianapolis investors grow their portfolios while deferring tax liability."
+    },
+    {
+      "question": "What properties qualify for 1031 exchanges in Indianapolis?",
+      "answer": "Investment and business properties qualify for 1031 exchanges, including commercial buildings, retail centers, office buildings, industrial warehouses, multifamily apartments, NNN leased properties, and raw land held for investment. Personal residences do not qualify unless used for business purposes."
+    },
+    {
+      "question": "How long do I have to complete a 1031 exchange?",
+      "answer": "You have 45 days from the sale of your relinquished property to identify potential replacement properties, and 180 days total to complete the purchase of replacement property. These IRS deadlines are strict with no extensions, making professional guidance essential."
+    },
+    {
+      "question": "Do I need a Qualified Intermediary for my Indianapolis 1031 exchange?",
+      "answer": "Yes, IRS regulations require using a Qualified Intermediary (QI) to facilitate your 1031 exchange. The QI holds your exchange funds and prepares documentation to prevent constructive receipt, which would disqualify the exchange and trigger immediate tax liability."
+    },
+    {
+      "question": "Can I do a 1031 exchange from out of state into Indianapolis properties?",
+      "answer": "Yes, 1031 exchanges can cross state lines. Many investors exchange properties from other states into Indianapolis real estate to take advantage of strong market fundamentals, affordable pricing, and diverse investment opportunities in the Indianapolis metropolitan area."
+    }
+  ]
 }

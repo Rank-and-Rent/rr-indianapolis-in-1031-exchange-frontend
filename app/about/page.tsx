@@ -1,6 +1,27 @@
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Us | Indianapolis 1031 Exchange Experts",
+  description: "Learn about Indianapolis 1031 Exchange, your trusted partner for tax-deferred real estate investments. Over 20 years of experience helping Central Indiana investors.",
+  keywords: [
+    "Indianapolis 1031 exchange company",
+    "qualified intermediary Indianapolis",
+    "1031 exchange experts Indiana",
+    "tax deferred exchange specialists",
+    "Indianapolis real estate advisors"
+  ],
+  openGraph: {
+    title: "About Indianapolis 1031 Exchange",
+    description: "Over 20 years of experience helping Central Indiana investors with tax-deferred exchanges.",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://indy1031exchange.com/about"
+  }
+};
 
 function SparkleIcon({ className = "w-8 h-8" }: { className?: string }) {
   return (
@@ -15,15 +36,43 @@ function SparkleIcon({ className = "w-8 h-8" }: { className?: string }) {
 }
 
 export default function AboutPage() {
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Indianapolis 1031 Exchange",
+      "description": "Expert 1031 exchange services for Indianapolis real estate investors",
+      "foundingDate": "2000",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "100 Monument Circle, Suite 500",
+        "addressLocality": "Indianapolis",
+        "addressRegion": "IN",
+        "postalCode": "46204",
+        "addressCountry": "US"
+      },
+      "telephone": "(317) 555-1031",
+      "areaServed": {
+        "@type": "State",
+        "name": "Indiana"
+      }
+    }
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }}
+      />
       <Header />
       <main className="pt-20">
         {/* Hero */}
         <section
           className="relative min-h-[500px] flex items-center"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1569336415962-a4bd9f69c07b?w=1600&q=80')",
+            backgroundImage: "url('https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=1600&q=80')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}

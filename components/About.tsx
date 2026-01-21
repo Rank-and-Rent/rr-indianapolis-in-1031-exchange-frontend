@@ -39,8 +39,8 @@ export default function About() {
             }}
           >
             <img
-              src="https://images.unsplash.com/photo-1569336415962-a4bd9f69c07b?w=800&q=80"
-              alt="Indianapolis skyline at sunset"
+              src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800&q=80"
+              alt="Indianapolis architecture and downtown"
               className="w-full h-full object-cover"
             />
           </div>
@@ -50,7 +50,7 @@ export default function About() {
       {/* Right - Teal Content */}
       <div className="bg-teal flex items-center py-16 px-8 lg:px-16 min-h-[550px]">
         <div className="max-w-lg mx-auto lg:mx-0">
-          <SparkleIcon className="w-8 h-8 mb-6" />
+          <SparkleIcon className="w-8 h-8 mx-auto mb-6" />
           <h2 className="text-5xl md:text-6xl text-white mb-8 font-serif italic">
             About Us
           </h2>

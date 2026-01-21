@@ -46,29 +46,36 @@ export default function ServicesPage() {
         {/* Services Grid */}
         <section className="py-24 bg-paper">
           <div className="container">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
               {services.map((service) => (
                 <Link
                   key={service.id}
                   href={`/services/${service.id}`}
-                  className="group grid grid-cols-1 md:grid-cols-2 bg-cream overflow-hidden"
+                  className="group text-center"
                 >
-                  <div className="aspect-square md:aspect-auto overflow-hidden">
-                    <img
-                      src={service.image}
-                      alt={service.name}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  <div className="relative mb-6">
+                    <div
+                      className="absolute top-0 left-0 right-0 h-16 z-10 pointer-events-none"
+                      style={{
+                        background: "linear-gradient(to bottom, rgba(250,249,246,0.85) 0%, rgba(250,249,246,0.3) 50%, transparent 100%)",
+                        borderRadius: "180px 180px 0 0",
+                      }}
                     />
+                    <div
+                      className="relative overflow-hidden mx-auto"
+                      style={{ borderRadius: "180px 180px 0 0", aspectRatio: "3/4", maxWidth: "280px" }}
+                    >
+                      <img
+                        src={service.image}
+                        alt={service.name}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
                   </div>
-                  <div className="p-8 flex flex-col justify-center">
-                    <h3 className="text-2xl text-heading font-serif italic mb-2">
-                      {service.name}
-                    </h3>
-                    <p className="text-ink mb-4">{service.description}</p>
-                    <span className="text-teal text-sm tracking-wider uppercase">
-                      Learn More
-                    </span>
-                  </div>
+                  <h3 className="text-2xl text-heading font-serif italic mb-2">
+                    {service.name}
+                  </h3>
+                  <p className="text-ink text-sm">{service.description}</p>
                 </Link>
               ))}
             </div>

@@ -10,8 +10,66 @@ import WorkWithUs from "@/components/WorkWithUs";
 import Footer from "@/components/Footer";
 
 export default function Home() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://indy1031exchange.com"
+      }
+    ]
+  };
+
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Indianapolis 1031 Exchange",
+    "image": "https://indy1031exchange.com/logo.png",
+    "@id": "https://indy1031exchange.com",
+    "url": "https://indy1031exchange.com",
+    "telephone": "(317) 555-1031",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "100 Monument Circle, Suite 500",
+      "addressLocality": "Indianapolis",
+      "addressRegion": "IN",
+      "postalCode": "46204",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.7684,
+      "longitude": -86.1581
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "17:00"
+    },
+    "sameAs": []
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
       <Header />
       <main>
         {/* 1. Hero with video background */}
